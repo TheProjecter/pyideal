@@ -58,7 +58,7 @@ class MainWindow(QtGui.QWidget):
             content = ''.join(content)
             editor.setPlainText(content)
             self._tabs.addTab(editor, fileName)
-            self._tabs.setTabText(self._tabs.count()-1, os.path.basename(f.name))
+            self._tabs.setTabText(self._tabs.count()-1, os.path.basename(f.name)) #Coloco solo el nombre de archivo en la pestaña
             self._tabs.setCurrentIndex(self._tabs.count()-1)
             editor.setFocus()
         except:
