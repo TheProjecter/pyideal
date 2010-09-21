@@ -14,6 +14,7 @@ def format(color, style=''):
     _color.setNamedColor(color)
 
     _format = QTextCharFormat()
+    _format.setFontFamily('monospace')
     _format.setForeground(_color)
     if 'bold' in style:
         _format.setFontWeight(QFont.Bold)
@@ -25,14 +26,14 @@ def format(color, style=''):
 
 # Syntax styles that can be shared by all languages
 STYLES = {
-    'keyword': format('blue'),
-    'operator': format('red'),
+    'keyword': format('violet'),    #darkMagenta
+    'operator': format('magenta'),
     'brace': format('darkGray'),
     'defclass': format('black', 'bold'),
-    'string': format('magenta'),
-    'string2': format('darkMagenta'),
-    'comment': format('darkGreen', 'italic'),
-    'self': format('black', 'italic'),
+    'string': format('green'),
+    'string2': format('darkGreen'),
+    'comment': format('grey', 'italic'),
+    'self': format('lightBlue', 'italic'),
     'numbers': format('brown'),
 }
 
