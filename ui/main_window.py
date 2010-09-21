@@ -1,7 +1,7 @@
 import sys
 
 from PyQt4 import QtGui, QtCore
-
+import os
 from editor import Editor
 import resources
 
@@ -48,7 +48,7 @@ class MainWindow(QtGui.QWidget):
         editor.setFocus()
 
     def open_file(self):
-        fileName = str(QtGui.QFileDialog.getOpenFileName(self, 'Open File', filter='*.html'))
+        fileName = str(QtGui.QFileDialog.getOpenFileName(self, 'Open File', filter='*'))
         if fileName == '':
             return
         editor = Editor()
@@ -57,7 +57,8 @@ class MainWindow(QtGui.QWidget):
             content = f.readlines()
             content = ''.join(content)
             editor.setPlainText(content)
-            self._tabs.addTab(editor, 'New Document')
+            self._tabs.addTab(editor, fileName)
+            self._tabs.setTabText(self._tabs.count()-1, os.path.basename(f.name))
             self._tabs.setCurrentIndex(self._tabs.count()-1)
             editor.setFocus()
         except:
