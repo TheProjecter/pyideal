@@ -28,7 +28,7 @@ def format(color, style=''):
 STYLES = {
     'keyword': format('darkMagenta', 'bold'),
     'operator': format('darkRed'),
-    'brace': format('darkGray'),
+    'brace': format('#858585'),
     'defclass': format('black', 'bold'),
     'string': format('green'),
     'string2': format('darkGreen'),
