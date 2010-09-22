@@ -15,7 +15,6 @@ class IDE(QMainWindow):
         QWidget.__init__(self)
         self.setWindowTitle('pyIDEal')
         self.setWindowState(Qt.WindowMaximized)
-        print gui.prueba
 
         #Main Widgets
         self.main = MainWindow(self)
