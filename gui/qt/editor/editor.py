@@ -16,3 +16,13 @@ class Editor(QPlainTextEdit):
         self.highlighter = PythonHighlighter(self.document())
         self.newDocument = True
         self.path = ''
+        css = '''
+        QPlainTextEdit {
+          font-family: monospace;
+          font-size: 10;
+          color: black;
+          background-color: white;
+          selection-color: white;
+          selection-background-color: #437DCD;
+        }'''
+        self.setStyleSheet(css)
