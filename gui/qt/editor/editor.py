@@ -2,6 +2,7 @@ from PyQt4.QtGui import QWidget
 from PyQt4.QtGui import QPlainTextEdit
 from PyQt4.QtGui import QFont
 from PyQt4.QtGui import QTextCharFormat
+from PyQt4.QtCore import QSize
 
 from highlighter import PythonHighlighter
 
@@ -9,10 +10,7 @@ class Editor(QPlainTextEdit):
 
     def __init__(self):
         QPlainTextEdit.__init__(self)
-        font = QFont("monospace", 10)
-        charFormat = QTextCharFormat()
-        charFormat.setFont(font)
-        self.setCurrentCharFormat(charFormat)
+        self.lineNumber = LineNumbersArea(self)
         self.highlighter = PythonHighlighter(self.document())
         self.newDocument = True
         self.path = ''
@@ -26,3 +24,13 @@ class Editor(QPlainTextEdit):
           selection-background-color: #437DCD;
         }'''
         self.setStyleSheet(css)
+
+
+class LineNumbersArea(QWidget):
+
+    def __init__(self, editor):
+        QWidget.__init__(editor)
+        self.codeEditor = editor
+
+    def sizeHint(self):
+        return QSize(self.codeEditor.line_number_area(), 0)
